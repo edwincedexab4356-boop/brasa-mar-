@@ -1,0 +1,6 @@
+{
+  "name": "BRASA & MAR — Menú Digital Gastronómico",
+  "description": "Menú digital contemporáneo de alta gastronomía para BRASA & MAR: mariscos frescos, cortes a la brasa, personalización de pedidos y pedidos por WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

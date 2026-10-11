@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B0C0E;
+    color: #F4F1EA;
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbars for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glass effect and copper borders */
+.copper-border {
+  border: 1px solid rgba(200, 125, 85, 0.22);
+}
+
+.copper-border-hover:hover {
+  border-color: rgba(200, 125, 85, 0.45);
+}
+
+.charcoal-card {
+  background: linear-gradient(180deg, #16191E 0%, #111317 100%);
+}
