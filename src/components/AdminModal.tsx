@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useRestaurant } from '../context/RestaurantContext';
 import { CategoryId, Dish, Promotion, RestaurantConfig } from '../types';
+import { getSafeDishImage } from '../utils/imageRegistry';
 
 interface AdminModalProps {
   isOpen: boolean;
@@ -326,8 +327,11 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose }) => {
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <img
-                        src={dish.image}
+                        src={getSafeDishImage(dish.id, dish.image, dish.categoryId)}
                         alt={dish.name}
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = getSafeDishImage(dish.id, '', dish.categoryId);
+                        }}
                         referrerPolicy="no-referrer"
                         className="h-12 w-12 rounded-lg object-cover bg-[#1B202A] shrink-0"
                       />

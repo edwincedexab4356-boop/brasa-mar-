@@ -2,6 +2,7 @@ import React from 'react';
 import { Tag, Sparkles, ArrowRight } from 'lucide-react';
 import { useRestaurant } from '../context/RestaurantContext';
 import { Promotion } from '../types';
+import { IMAGES } from '../utils/imageRegistry';
 
 export const PromotionsSection: React.FC = () => {
   const { promotions, setIsCartOpen, sendWhatsAppOrder, setSelectedDishForDetail, dishes } =
@@ -39,8 +40,11 @@ export const PromotionsSection: React.FC = () => {
               {/* Media */}
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#1B1F2A]">
                 <img
-                  src={promo.image}
+                  src={promo.image || IMAGES.hero}
                   alt={promo.title}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.hero;
+                  }}
                   referrerPolicy="no-referrer"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-90"
                 />

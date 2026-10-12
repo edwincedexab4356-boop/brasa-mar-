@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useRestaurant } from '../context/RestaurantContext';
 import { OrderMode } from '../types';
+import { getSafeDishImage } from '../utils/imageRegistry';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -206,8 +207,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                     >
                       <div className="flex gap-3">
                         <img
-                          src={item.image}
+                          src={getSafeDishImage(item.dishId, item.image)}
                           alt={item.name}
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = getSafeDishImage(item.dishId, '');
+                          }}
                           referrerPolicy="no-referrer"
                           className="h-16 w-16 rounded-lg object-cover bg-[#1B1F2A] shrink-0"
                         />

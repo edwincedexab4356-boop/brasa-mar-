@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, Flame, Waves, Clock, MapPin, MessageCircle } from 'lucide-react';
 import { useRestaurant } from '../context/RestaurantContext';
+import { IMAGES } from '../utils/imageRegistry';
 
 export const HeroSection: React.FC = () => {
   const { restaurantConfig, setIsInfoOpen, setIsCartOpen } = useRestaurant();
@@ -76,7 +77,7 @@ export const HeroSection: React.FC = () => {
             <div className="relative lg:col-span-6 min-h-[300px] lg:min-h-full">
               <div className="relative h-full w-full overflow-hidden">
                 <img
-                  src="/src/assets/images/hero_brasa_grill_1791739490337.jpg"
+                  src={IMAGES.hero}
                   alt="Gastronomía a la brasa con langosta, camarones y corte prime"
                   className="h-full w-full object-cover object-center filter brightness-95"
                   referrerPolicy="no-referrer"

@@ -1,4 +1,5 @@
 import { Category, Dish, Promotion, RestaurantConfig } from '../types';
+import { IMAGES, DISH_IMAGE_MAP } from '../utils/imageRegistry';
 
 export const INITIAL_CATEGORIES: Category[] = [
   {
@@ -70,7 +71,7 @@ export const INITIAL_PROMOTIONS: Promotion[] = [
     title: 'Experiencia Dúo Brasa & Océano',
     subtitle: 'Tomahawk 900g para compartir + Pulpo braseado + Botella de Malbec Reserva',
     discountBadge: '20% OFF',
-    image: '/src/assets/images/hero_brasa_grill_1791739490337.jpg',
+    image: IMAGES.hero,
     priceBefore: 168.0,
     priceNow: 134.0,
     terms: 'Válido para consumo en salón o retiro previo pedido.',
@@ -78,10 +79,10 @@ export const INITIAL_PROMOTIONS: Promotion[] = [
   },
   {
     id: 'promo-2',
-    title: 'Festival de Ostras & Champagne',
-    subtitle: 'Docena de ostras del Pacífico con mignonette + 2 copas de Champagne Brut',
+    title: 'Festival de Mariscos & Degustación',
+    subtitle: 'Ceviche clásico costero + Pulpo a la brasa + 2 copas de vino blanco albariño',
     discountBadge: 'Especial Fin de Semana',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1200&q=80',
+    image: IMAGES.pulpo,
     priceBefore: 78.0,
     priceNow: 62.0,
     terms: 'Disponible viernes a domingo a partir de las 18:00.',
@@ -90,9 +91,9 @@ export const INITIAL_PROMOTIONS: Promotion[] = [
   {
     id: 'promo-3',
     title: 'Almuerzo Ejecutivo Contemporáneo',
-    subtitle: 'Ceviche degustación o Tiradito + Salmón al miso o Picaña a las brasas + Bebida',
+    subtitle: 'Ceviche degustación o Tiradito + Lubina al carbón o Picaña a las brasas + Bebida',
     discountBadge: 'Menú Mediodía',
-    image: '/src/assets/images/ceviche_degustacion_1791739499677.jpg',
+    image: IMAGES.ceviche,
     priceBefore: 42.0,
     priceNow: 34.0,
     terms: 'Martes a viernes de 12:30 a 16:00.',
@@ -109,7 +110,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 24.5,
     description:
       'Pesca del día en corte grueso, leche de tigre perfumada con ají amarillo ahumado, choclo tostado a la brasa, cebolla chalota y crema sedosa de aguacate.',
-    image: '/src/assets/images/ceviche_degustacion_1791739499677.jpg',
+    image: IMAGES.ceviche,
     ingredients: ['Corvina silvestre', 'Leche de tigre al ají amarillo', 'Choclo a las brasas', 'Cebolla chalota', 'Aguacate', 'Cilantro fresco'],
     allergens: ['Mariscos', 'Pescado'],
     dietary: ['gluten-free', 'seafood'],
@@ -140,7 +141,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 31.0,
     description:
       'Tentáculo de pulpo del Atlántico cocinado a baja temperatura y caramelizado en carbón de leña, laqueado con pimentón de la Vera y aceite de oliva virgen sobre cremoso de papa trufada.',
-    image: '/src/assets/images/pulpo_brasa_1791739517483.jpg',
+    image: IMAGES.pulpo,
     ingredients: ['Pulpo atlántico', 'Puré parmentier', 'Pimentón de la Vera', 'Aceite de oliva extra virgen', 'Sal negra volcánica', 'Microbrotes'],
     allergens: ['Mariscos', 'Lácteos'],
     dietary: ['gluten-free', 'seafood'],
@@ -159,7 +160,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 28.0,
     description:
       'Media docena de ostras vivas abiertas al momento, acompañadas de mignonette artesanal de manzana verde, toques de granizado de pepino y limón quemado.',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.ceviche,
     ingredients: ['Ostras vivas del Pacífico', 'Mignonette de chalota y manzana', 'Granita de pepino', 'Limón parrillero', 'Sal marina en escamas'],
     allergens: ['Moluscos'],
     dietary: ['gluten-free', 'seafood'],
@@ -184,7 +185,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 29.5,
     description:
       'Langostinos salvajes enteros asados sobre brasas abiertas, pincelados con mantequilla de ajo confitado, perejil de hoja ancha y reducción de vino blanco marino.',
-    image: 'https://images.unsplash.com/photo-1559742811-82286364ceaf?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.hero,
     ingredients: ['Langostinos salvajes', 'Ajo confitado', 'Mantequilla de campo', 'Vino blanco albariño', 'Guindilla ahumada'],
     allergens: ['Crustáceos', 'Lácteos'],
     dietary: ['gluten-free', 'seafood'],
@@ -202,7 +203,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 22.0,
     description:
       'Láminas finas de atún fresco sellado brevemente al soplete de carbón, emulsión de maracuyá y sésamo negro tostado, crujiente de piel de pescado.',
-    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.tiradito,
     ingredients: ['Atún aleta amarilla', 'Ponzu de maracuyá', 'Aceite de sésamo', 'Cebollino', 'Furikake marino'],
     allergens: ['Pescado', 'Sésamo', 'Soya'],
     dietary: ['seafood'],
@@ -215,7 +216,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 18.5,
     description:
       'Croquetas cremosas con bechamel infusionada en cabezas de bogavante rostizadas, corazón jugoso y velo de papada ibérica curada con crujiente dorado.',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.croquetas,
     ingredients: ['Bogavante azul', 'Leche entera infusionada', 'Papada ibérica', 'Panko japonés', 'Alioli de azafrán'],
     allergens: ['Crustáceos', 'Gluten', 'Lácteos', 'Huevo'],
     isPopular: true,
@@ -228,7 +229,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 17.0,
     description:
       'Queso provolone hilado fundido en cazuela de hierro fundido, tomates cherry confitados al romero, orégano de montaña y chimichurri tibio de la casa.',
-    image: 'https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.papas,
     ingredients: ['Queso provolone', 'Tomates cherry rostizados', 'Orégano fresco', 'Chimichurri de hierbas'],
     allergens: ['Lácteos'],
     dietary: ['vegetarian', 'gluten-free'],
@@ -244,7 +245,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 21.5,
     description:
       'Corte milimétrico de lomo madurado en seco, emulsión trufada de piñones, alcaparras fritas crujientes y láminas de Parmigiano Reggiano 24 meses.',
-    image: 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.tiradito,
     ingredients: ['Res madurada en seco', 'Parmigiano Reggiano', 'Aceite de trufa blanca', 'Alcaparras', 'Rúcula salvaje'],
     allergens: ['Lácteos', 'Frutos secos'],
     dietary: ['meat'],
@@ -259,7 +260,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 89.0,
     description:
       'Corte insignia de 1.1 kg con hueso largo expuesto, marmoleado USDA Prime madurado en seco. Sellado a fuego vivo de roble y terminado al calor suave de la brasa con sal Maldon.',
-    image: '/src/assets/images/tomahawk_brasa_1791739508786.jpg',
+    image: IMAGES.tomahawk,
     ingredients: ['Tomahawk Prime 1100g', 'Sal marina en escamas Maldon', 'Mantequilla de romero y ajo', 'Chimichurri rústico'],
     dietary: ['gluten-free', 'meat'],
     isPopular: true,
@@ -290,7 +291,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 44.0,
     description:
       'Ribeye de novillo Angus certificado con infiltración óptima de grasa. Jugoso, tierno y con costra caramelizada inconfundible gracias a nuestra parrilla de hierro angulado.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.tomahawk,
     ingredients: ['Ojo de bife Angus 450g', 'Sal marina ahumada', 'Romero fresco', 'Ajo asado'],
     dietary: ['gluten-free', 'meat'],
     isPopular: true,
@@ -318,7 +319,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 36.5,
     description:
       'Corte de picaña con generosa capa de grasa crujiente y dorada a fuego lento sobre brasas de quebracho blanco, servida en finos cortes jugosos con farofa artesanal.',
-    image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.tomahawk,
     ingredients: ['Picaña Prime 400g', 'Sal parrillera', 'Farofa con panceta ahumada', 'Vinagreta fresca'],
     dietary: ['meat'],
     available: true,
@@ -342,7 +343,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 39.0,
     description:
       'Costillitas francesas de cordero marinadas 24 horas en hierbas de ribera, selladas a fuego alto y glaseadas con miel silvestre y reducción de aceto balsámico.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.tomahawk,
     ingredients: ['Cordero patagónico', 'Miel pura de azahar', 'Romero y tomillo fresco', 'Zanahorias baby glaseadas'],
     dietary: ['meat', 'gluten-free'],
     isNew: true,
@@ -357,7 +358,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 33.5,
     description:
       'Arroz bomba cocinado a fuego de leña en fumet concentrado de cigalas y carabineros, coronado con mejillones de roca, calamar a la brasa y alioli de azafrán.',
-    image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.arroz,
     ingredients: ['Arroz bomba', 'Fumet de carabineros', 'Calamar de potera', 'Mejillones', 'Alioli de azafrán'],
     allergens: ['Mariscos', 'Pescado', 'Moluscos', 'Huevo'],
     dietary: ['seafood'],
@@ -382,7 +383,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 29.0,
     description:
       'Filete de salmón fresco con piel crujiente a la plancha de hierro, glaseado con miso blanco y jugo de naranja agria, acompañado de espárragos trigueros al carbón.',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.lubina,
     ingredients: ['Salmón atlántico', 'Miso blanco dulce', 'Cítricos de huerto', 'Espárragos verdes', 'Aceite de sésamo'],
     allergens: ['Pescado', 'Soya'],
     dietary: ['seafood', 'gluten-free'],
@@ -395,7 +396,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 35.0,
     description:
       'Lubina salvaje abierta en mariposa, asada con aceite de oliva, ajo en láminas doradas y guindilla, salpicada con vinagre de sidra natural al salir del fuego.',
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.lubina,
     ingredients: ['Lubina salvaje 700g', 'Ajo confitado', 'Guindilla seca', 'Aceite de oliva virgen', 'Vinagre de sidra'],
     allergens: ['Pescado'],
     dietary: ['seafood', 'gluten-free'],
@@ -410,7 +411,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 22.5,
     description:
       '220g de corte Dry-Aged picado a cuchillo a la parrilla, queso Gruyère fundido, hongos portobello al vino tinto, emulsión de trufa negra y pan brioche artesanal dorado con mantequilla.',
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.burger,
     ingredients: ['Carne madurada 220g', 'Queso Gruyère', 'Portobellos salteados', 'Mayonesa de trufa negra', 'Pan brioche tostado'],
     allergens: ['Gluten', 'Lácteos', 'Huevo'],
     dietary: ['meat'],
@@ -439,9 +440,9 @@ export const INITIAL_DISHES: Dish[] = [
     name: 'Burger Surf & Turf de Langostino',
     price: 25.0,
     description:
-      'Blend de res angus a las brasas coronado con langostinos al ajillo salteados en manteca de hierbas, queso provolone fundido y salsa tártara de alcaparras en pan brioche de tinta de calamar.',
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80',
-    ingredients: ['Carne angus 180g', 'Langostinos salteados', 'Queso provolone', 'Salsa tártara casera', 'Pan brioche negro'],
+      'Blend de res angus a las brasas coronado con langostinos al ajillo salteados en manteca de hierbas, queso provolone fundido y salsa tártara de alcaparras en pan brioche artesanal.',
+    image: IMAGES.burger,
+    ingredients: ['Carne angus 180g', 'Langostinos salteados', 'Queso provolone', 'Salsa tártara casera', 'Pan brioche tostado'],
     allergens: ['Gluten', 'Crustáceos', 'Lácteos', 'Huevo'],
     dietary: ['meat', 'seafood'],
     isNew: true,
@@ -456,7 +457,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 9.5,
     description:
       'Papas cortadas a mano en doble cocción con piel crujiente, perfumadas con aceite de trufa blanca, escamas de queso Parmigiano Reggiano 24 meses y perejil fresco picado.',
-    image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.papas,
     ingredients: ['Papa criolla', 'Aceite de trufa blanca', 'Parmigiano Reggiano', 'Sal marina'],
     allergens: ['Lácteos'],
     dietary: ['vegetarian'],
@@ -470,7 +471,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 8.5,
     description:
       'Zanahorias orgánicas, calabacín, espárragos y cebolletas braseadas al fuego directo, rociadas con reducción balsámica añeja y sal Maldon.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.papas,
     ingredients: ['Espárragos', 'Zanahorias baby', 'Calabacín', 'Cebollines', 'Aceite de oliva'],
     dietary: ['vegetarian', 'gluten-free'],
     available: true,
@@ -482,7 +483,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 8.0,
     description:
       'Puré sedoso y untuoso de papa amarilla batido con mantequilla de vaca ahumada sobre brasas y toques de nuez moscada recién molida.',
-    image: 'https://images.unsplash.com/photo-1514944298352-dfb83b3e0c0d?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.papas,
     ingredients: ['Papa amarilla', 'Mantequilla ahumada en leña', 'Crema de leche de campo', 'Nuez moscada'],
     allergens: ['Lácteos'],
     dietary: ['vegetarian', 'gluten-free'],
@@ -497,7 +498,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 15.0,
     description:
       'Bourbon añejado infusionado con romero silvestre, licor de naranja amarga, bitter de cacao y ahumado en campana de cristal con virutas de roble francés ante el comensal.',
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.coctel,
     ingredients: ['Bourbon selecto', 'Romero quemado', 'Licor de naranja', 'Bitter de cacao', 'Humo de roble'],
     isPopular: true,
     isSpecialty: true,
@@ -510,7 +511,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 13.5,
     description:
       'Pisco puro Quebranta, jugo de limón recién exprimido, jarabe simple aromático, clara de huevo pasteurizada y gotas de amargo de Angostura.',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.coctel,
     ingredients: ['Pisco Quebranta', 'Limón criollo', 'Clara de huevo', 'Amargo de Angostura'],
     allergens: ['Huevo'],
     available: true,
@@ -522,7 +523,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 12.0,
     description:
       'Vino tinto de altura del Valle de Uco, con notas de ciruela negra, vainilla sutil y taninos redondos, ideal para armonizar con nuestras carnes al carbón.',
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.coctel,
     ingredients: ['Uva Malbec 100%', 'Crianza de 12 meses en barrica de roble'],
     available: true,
     variants: [
@@ -544,7 +545,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 7.0,
     description:
       'Leche de coco cremosa batida con zumo de limón verde, hojas frescas de menta macerada y hielo frappeado.',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.coctel,
     ingredients: ['Leche de coco artesanal', 'Limón verde fresco', 'Menta orgánica', 'Hielo frappe'],
     dietary: ['vegetarian', 'gluten-free'],
     available: true,
@@ -558,7 +559,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 12.5,
     description:
       'Bizcocho tibio de chocolate negro 70% origen único con corazón fundente, escamas de sal marina atlántica y helado artesanal de vainilla Bourbon con humo frío.',
-    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.volcan,
     ingredients: ['Chocolate amargo 70%', 'Sal marina en escamas', 'Mantequilla pura', 'Helado de vainilla Bourbon'],
     allergens: ['Gluten', 'Lácteos', 'Huevo'],
     isPopular: true,
@@ -572,7 +573,7 @@ export const INITIAL_DISHES: Dish[] = [
     price: 11.5,
     description:
       'Finas capas de hojaldre caramelizado e intercalado con dulce de leche rústico a la antigua y crocante de nueces pecán tostadas al sartén.',
-    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000&q=80',
+    image: IMAGES.volcan,
     ingredients: ['Hojaldre invertido artesanal', 'Dulce de leche de campo', 'Nuez pecán', 'Azúcar glas'],
     allergens: ['Gluten', 'Lácteos', 'Frutos secos'],
     available: true,

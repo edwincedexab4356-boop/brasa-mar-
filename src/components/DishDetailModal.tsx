@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Plus, Minus, Check, Flame, AlertCircle, ShoppingBag } from 'lucide-react';
 import { Dish, ExtraOption, SelectedVariant } from '../types';
 import { useRestaurant } from '../context/RestaurantContext';
+import { getSafeDishImage } from '../utils/imageRegistry';
 
 interface DishDetailModalProps {
   dish: Dish | null;
@@ -116,20 +117,19 @@ export const DishDetailModal: React.FC<DishDetailModalProps> = ({ dish, onClose 
         <div className="overflow-y-auto flex-1 no-scrollbar">
           {/* Hero Image */}
           <div className="relative h-56 sm:h-72 w-full overflow-hidden bg-[#181C26]">
-            {!imgError ? (
-              <img
-                src={dish.image}
-                alt={dish.name}
-                onError={() => setImgError(true)}
-                referrerPolicy="no-referrer"
-                className="h-full w-full object-cover object-center filter brightness-95"
-              />
-            ) : (
-              <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#1C202B] to-[#111319] p-6 text-center">
-                <Flame className="h-10 w-10 text-[#C87D55] mb-2" />
-                <span className="font-serif-display text-lg text-[#F6F4EE]">{dish.name}</span>
-              </div>
-            )}
+            <img
+              src={
+                imgError
+                  ? getSafeDishImage(dish.id, '', dish.categoryId)
+                  : getSafeDishImage(dish.id, dish.image, dish.categoryId)
+              }
+              alt={dish.name}
+              onError={() => {
+                if (!imgError) setImgError(true);
+              }}
+              referrerPolicy="no-referrer"
+              className="h-full w-full object-cover object-center filter brightness-95"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-[#12151C] via-[#12151C]/30 to-transparent" />
 
             {/* Base tags in image */}

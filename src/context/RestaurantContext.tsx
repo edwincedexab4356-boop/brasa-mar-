@@ -19,6 +19,7 @@ import {
   INITIAL_PROMOTIONS,
   INITIAL_RESTAURANT_CONFIG,
 } from '../data/initialMenu';
+import { getSafeDishImage } from '../utils/imageRegistry';
 
 interface RestaurantContextType {
   dishes: Dish[];
@@ -85,19 +86,26 @@ interface RestaurantContextType {
 const RestaurantContext = createContext<RestaurantContextType | undefined>(undefined);
 
 const STORAGE_KEYS = {
-  DISHES: 'brasa_mar_dishes_v1',
-  PROMOTIONS: 'brasa_mar_promos_v1',
-  CONFIG: 'brasa_mar_config_v1',
-  CART: 'brasa_mar_cart_v1',
-  DEMO_ORDERS: 'brasa_mar_demo_orders_v1',
+  DISHES: 'brasa_mar_dishes_v2',
+  PROMOTIONS: 'brasa_mar_promos_v2',
+  CONFIG: 'brasa_mar_config_v2',
+  CART: 'brasa_mar_cart_v2',
+  DEMO_ORDERS: 'brasa_mar_demo_orders_v2',
 };
 
 export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Dishes state with persistence
+  // Dishes state with persistence and guaranteed image integrity
   const [dishes, setDishes] = useState<Dish[]>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.DISHES);
-      return stored ? JSON.parse(stored) : INITIAL_DISHES;
+      if (stored) {
+        const parsed: Dish[] = JSON.parse(stored);
+        return parsed.map((d) => ({
+          ...d,
+          image: getSafeDishImage(d.id, d.image, d.categoryId),
+        }));
+      }
+      return INITIAL_DISHES;
     } catch {
       return INITIAL_DISHES;
     }

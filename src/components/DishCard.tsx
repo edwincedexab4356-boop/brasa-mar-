@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Eye, Flame, AlertCircle } from 'lucide-react';
 import { Dish } from '../types';
 import { useRestaurant } from '../context/RestaurantContext';
+import { getSafeDishImage } from '../utils/imageRegistry';
 
 interface DishCardProps {
   dish: Dish;
@@ -10,6 +11,10 @@ interface DishCardProps {
 export const DishCard: React.FC<DishCardProps> = ({ dish }) => {
   const { setSelectedDishForDetail, addToCart } = useRestaurant();
   const [imgError, setImgError] = useState(false);
+
+  const displayImage = imgError
+    ? getSafeDishImage(dish.id, '', dish.categoryId)
+    : getSafeDishImage(dish.id, dish.image, dish.categoryId);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -29,21 +34,16 @@ export const DishCard: React.FC<DishCardProps> = ({ dish }) => {
     >
       {/* Visual media slot */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1D212B]">
-        {!imgError ? (
-          <img
-            src={dish.image}
-            alt={dish.name}
-            onError={() => setImgError(true)}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-            className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 filter brightness-95"
-          />
-        ) : (
-          <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#1C202A] to-[#12141A] p-4 text-center">
-            <Flame className="h-8 w-8 text-[#C87D55]/60 mb-2" />
-            <span className="font-serif-display text-sm text-[#E6E1D5]">{dish.name}</span>
-          </div>
-        )}
+        <img
+          src={displayImage}
+          alt={dish.name}
+          onError={() => {
+            if (!imgError) setImgError(true);
+          }}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 filter brightness-95"
+        />
 
         {/* Subtle top indicator - clean unboxed or singular availability badge */}
         {!dish.available && (
